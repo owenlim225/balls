@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://c5xen8ooqynv0"]
+[gd_scene load_steps=2 format=3 uid="uid://c5xen8ooqynv0"]
+
+[ext_resource type="PackedScene" uid="uid://1xckg2il67x5" path="res://Scenes/background_day.tscn" id="1_tlwlt"]
 
 [node name="EasyLvl" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_tlwlt")]

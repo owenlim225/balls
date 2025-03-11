@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmaup4mnlhbso"]
+[gd_scene load_steps=5 format=3 uid="uid://bmaup4mnlhbso"]
 
 [ext_resource type="Texture2D" uid="uid://b8l6ygvhiku17" path="res://Assets/2 Background/Day/Background.png" id="1_00gd4"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_dao8s"]
 [ext_resource type="FontFile" uid="uid://bx75tlxirv80k" path="res://Assets/FutureMillennium.ttf" id="2_se1gx"]
 
 [sub_resource type="Theme" id="Theme_xx8jq"]
@@ -36,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dao8s")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
