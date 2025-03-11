@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dogr1db2hjbql"]
+[gd_scene load_steps=11 format=3 uid="uid://dogr1db2hjbql"]
 
+[ext_resource type="Script" path="res://Scripts/money.gd" id="1_keewe"]
 [ext_resource type="Texture2D" uid="uid://b2kkky8h5v2os" path="res://Assets/4 Animated objects/Money.png" id="1_q75sa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7xj8"]
@@ -56,10 +57,13 @@ animations = [{
 radius = 4.12311
 
 [node name="money" type="Area2D"]
+script = ExtResource("1_keewe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u1ju0")
-frame_progress = 0.00884421
+frame_progress = 0.832629
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nkp6w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

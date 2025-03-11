@@ -1,20 +1,8 @@
 extends RigidBody2D
 
-@export var move_force: float = 500.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
-func _physics_process(delta):
-	var direction = Vector2.ZERO
-
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_up"):
-		direction.y -= 1
-	if Input.is_action_pressed("move_down"):
-		direction.y += 1
-
-	direction = direction.normalized()
-
-	# Apply force to make the ball roll
-	apply_central_force(direction * move_force)
+const MOVE_SPEED = 50
+const MAX_SPEED = 100
+const JUMP_FORCE

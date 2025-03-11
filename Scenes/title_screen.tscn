@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmaup4mnlhbso"]
 
 [ext_resource type="Texture2D" uid="uid://b8l6ygvhiku17" path="res://Assets/2 Background/Day/Background.png" id="1_00gd4"]
-[ext_resource type="Script" path="res://title_screen.gd" id="1_dao8s"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_dao8s"]
 [ext_resource type="FontFile" uid="uid://bx75tlxirv80k" path="res://Assets/FutureMillennium.ttf" id="2_se1gx"]
 
 [sub_resource type="Theme" id="Theme_xx8jq"]
@@ -52,7 +52,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="mainScreen" type="VBoxContainer" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,23 +68,69 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 48
 
-[node name="title" type="Label" parent="Panel/VBoxContainer"]
+[node name="title" type="Label" parent="Panel/mainScreen"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_se1gx")
 theme_override_font_sizes/font_size = 80
 text = "Ball Game"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/mainScreen"]
 layout_mode = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="startBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="startBtn" type="Button" parent="Panel/mainScreen/HBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_xx8jq")
 text = "Start"
 
-[node name="quitBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="quitBtn" type="Button" parent="Panel/mainScreen/HBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_xx8jq")
 text = "Quit"
+
+[node name="levelSelection" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.5
+offset_top = -78.5
+offset_right = 220.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="title" type="Label" parent="Panel/levelSelection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_se1gx")
+theme_override_font_sizes/font_size = 80
+text = "DIFFICULTY LEVEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/levelSelection"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="easyMode" type="Button" parent="Panel/levelSelection/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xx8jq")
+text = "EASY"
+
+[node name="mediumMode" type="Button" parent="Panel/levelSelection/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xx8jq")
+text = "MEDIUM"
+
+[node name="hardMode" type="Button" parent="Panel/levelSelection/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xx8jq")
+text = "HARD"
+
+[connection signal="pressed" from="Panel/levelSelection/HBoxContainer/easyMode" to="." method="_on_easy_mode_pressed"]
+[connection signal="pressed" from="Panel/levelSelection/HBoxContainer/mediumMode" to="." method="_on_medium_mode_pressed"]
+[connection signal="pressed" from="Panel/levelSelection/HBoxContainer/hardMode" to="." method="_on_hard_mode_pressed"]
